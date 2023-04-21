@@ -1,88 +1,138 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c1cd786e-a23a-4dcc-a039-08b8a3eaefdd/deploy-status)](https://app.netlify.com/sites/zwitter/deploys)
-### Todo
+
+### Overview
+
+TWITTER CLONE app using Mern(Mongo,Express,React,Node)
+
+Following are the Features included in the App.
+1. Authentication using JWT token, i.e user login, and registration.
+2. Create and Delete a Tweet.
+3. Add an Image in a Tweet.
+4. Like and Dislike a Tweet.
+5. Add a reply to a tweet
+6. Retweet
+7. Read all the tweets in app
+8. Create and Edit a User.
+9. Follow and Unfollow User.
+10. View a user profile details
+11. Update Profile picture including uploading images using cloudinary is an cloud base storage of image.
+12. Responsive on Mobile
 
 
-- [ ]  Add tweet & replies tab.
+### Backend
+In the backend of the project uses 
 
-### In Progress
-
-- [ ] Null
-
-### Done ✓
-
-- [x] Make clone mobile friendly.
-- [x] Add hashtag,users in explore page. 
-- [x] Work on notifications eg.tweet like,mentioned.
-- [x] Add send email verification feature.
+- Node.js(Main backend lamguage )
+- Express.js(To craete REST API)
+- Mongoose( To connect MongoDB with express)
+- bcrypt(store encypted password in DB)
+- cloudinary(Upload Images to cloud)
 
 
-# Getting Started with Create React App
+* Setup Project
+    * init project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    * config .env file which includes
+        JWT_TOKEN_SECRET
+        MONGO_URI 
+        cloudinary_api_secret
+        cloudinary_api_key 
+        MODERATECONTENT_API_KEY 
+        HOME_URL 
 
-## Available Scripts
+    * create main file server.js
+        which manages connection of DB and PORT
 
-In the project directory, you can run:
+    * create Folder routes
+        which manages routing of the app
 
-### `npm start`
+    * create Models
+       SCHEMA of the DB
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    * controllers
+       includes API call
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+  ###  Frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Reactjs
+- Bootstrap (UI library)
+- react-router-dom (routing in UI)
+- react-toastify (for notifications)
+- axios (call APIs)
+- fontawesome (for icons)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+     * Setup project npx create-react-app
+        * App.js (Main file which has routes of the project)
+        * craete folder component has components that can be reusable
+        * in Pages folder has Auth folder that autherise user inputs
+        * services folder has axios call
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### How To Run Project
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    1. Step 
+        open MongoDB Compass
+        connect to HOST:localhost:27017 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    2. step
+        open project folder
+        cd backend 
+        in .env file add MONGO_URI as your localhost uri 
+        example: MONGO_URI =   mongodb://127.0.0.1:27017/twitter
+        DATABSE "Twitter" will autogenerate
+        in some cases localhost won't accept as URI so add 127.0.0.1 insted of localhost
+        open terminal cd backend 
+        npm install
+        npm start
+        project will run as nodemon if any changes has done in the project nodemon will auto refresh 
+        no need to restart port
+        after successfully done this message will show
+        Connected to database
+        Twitter app listening at http://localhost:5000
+        now the node.js(backend) of the project run on port 5000
 
-## Learn More
+    3. step
+        in terminal
+        cd frontend
+        npm install
+        npm start
+        webpack compiled successfully
+        proect runs on the browser 
+        http://localhost:3000/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    4. step
+        on http://localhost:3000/ show login and sigup page
+        create an account with valid creadintials 
+        autherisazion will check 
+        existing customer
+        valid email,username
+        both the passwords must be same
+        all fields are required
+        after successfully sign up it auto login user heads towrds home page
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+### Project 
+    
+    * this project is responsive works perfect on mobile 
+    * users can login , signup with encrypted password stored in database
+    * users can update there profile bio, profile pic
+    * users can tweet,retweet, like ,comments , follow , unfollw, delete tweet
+    * at rightside bar nes section is there
+    * saerch bar can searches users
+    * mention users in post
+    * get notificatios
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### IN Progress
+    
+    * users can login using google or github account
+    * users can post media 
+    * Tweets can be saved as Bookmarks
+    * More Settings
+    * email verification 
